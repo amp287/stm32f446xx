@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "macOS",
+            "includePath": [
+                "${workspaceFolder}/Inc", 
+                "${workspaceFolder}/Drivers/STM32F4xx_HAL_Driver/Inc",
+                "${workspaceFolder}/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy",
+                "${workspaceFolder}/Drivers/CMSIS/Device/ST/STM32F4xx/Include",
+                "${workspaceFolder}/Drivers/CMSIS/Include"
+            ],
+            "defines": ["USE_HAL_DRIVER", "STM32F446xx"],
+            "macFrameworkPath": [
+                "/System/Library/Frameworks",
+                "/Library/Frameworks"
+            ],
+            "compilerPath": "~/dev_tools/gcc-arm-none-eabi-8-2018-q4-major/bin/arm-none-eabi-gcc",
+            "cStandard": "c99",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}
