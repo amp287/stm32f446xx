@@ -10,12 +10,12 @@
             "request": "launch",
             "printCalls": true,
             "cwd": "${workspaceRoot}",
-            "target": "${workspaceRoot}/build/nucleo_f446re_driver_dev.elf", 
+            "target": "${workspaceRoot}/build/button_interrupt.elf", 
             "gdbpath" : "arm-none-eabi-gdb",
             "autorun": [
                 "target extended-remote | openocd -f board/st_nucleo_f4.cfg -c \"gdb_port pipe; log_output ./debuglogs/openocd.log\"",
                 "monitor halt",
-                "load ${workspaceRoot}/build/nucleo_f446re_driver_dev.elf",
+                "load ${workspaceRoot}/build/button_interrupt.elf",
                 "monitor reset halt" 
                 ]
         }
