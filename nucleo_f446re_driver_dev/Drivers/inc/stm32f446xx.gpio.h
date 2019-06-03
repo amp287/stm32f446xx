@@ -4,47 +4,77 @@
 #include "stm32f446xx.h"
 #include <stdbool.h>
 
-#define PIN_MODE_INPUT  0
-#define PIN_MODE_OUTPUT 1
-#define PIN_MODE_ALT    2
-#define PIN_MODE_ANALOG 3
+/*
+* @GPIO_PIN_MODES
+*/
+#define GPIO_PIN_MODE_INPUT  0
+#define GPIO_PIN_MODE_OUTPUT 1
+#define GPIO_PIN_MODE_ALT    2
+#define GPIO_PIN_MODE_ANALOG 3
 
-#define PORT_OUT_PUSH_PULL  0
-#define PORT_OUT_OPEN_DRAIN 1
+#define GPIO_PORT_OUT_PUSH_PULL  0
+#define GPIO_PORT_OUT_OPEN_DRAIN 1
 
-#define PIN_SPEED_LOW  0
-#define PIN_SPEED_MED  1
-#define PIN_SPEED_FAST 2
-#define PIN_SPEED_HIGH 3
+#define GPIO_PIN_SPEED_LOW  0
+#define GPIO_PIN_SPEED_MED  1
+#define GPIO_PIN_SPEED_FAST 2
+#define GPIO_PIN_SPEED_HIGH 3
 
 // Pull up / pull down register control values
-#define PUPDR_NONE  0
-#define PUPDR_UP    1
-#define PUPDR_DOWN  2
+#define GPIO_PUPDR_NONE  0
+#define GPIO_PUPDR_UP    1
+#define GPIO_PUPDR_DOWN  2
 
-#define ALT_FN_0    0
-#define ALT_FN_1    1
-#define ALT_FN_2    2
-#define ALT_FN_3    3
-#define ALT_FN_4    4
-#define ALT_FN_5    5
-#define ALT_FN_6    6
-#define ALT_FN_7    7
-#define ALT_FN_8    8
-#define ALT_FN_9    9
-#define ALT_FN_10   10
-#define ALT_FN_11   11
-#define ALT_FN_12   12
-#define ALT_FN_13   13
-#define ALT_FN_14   14
-#define ALT_FN_15   15
+/* @GPIO_ALT_FUNC_MODES
+* Alternate function options ()
+*/
+#define GPIO_ALT_FN_0    0
+#define GPIO_ALT_FN_1    1
+#define GPIO_ALT_FN_2    2
+#define GPIO_ALT_FN_3    3
+#define GPIO_ALT_FN_4    4
+#define GPIO_ALT_FN_5    5
+#define GPIO_ALT_FN_6    6
+#define GPIO_ALT_FN_7    7
+#define GPIO_ALT_FN_8    8
+#define GPIO_ALT_FN_9    9
+#define GPIO_ALT_FN_10   10
+#define GPIO_ALT_FN_11   11
+#define GPIO_ALT_FN_12   12
+#define GPIO_ALT_FN_13   13
+#define GPIO_ALT_FN_14   14
+#define GPIO_ALT_FN_15   15
+
+/* @GPIO_PIN_NUMS
+ */
+
+#define GPIO_PIN_0  0
+#define GPIO_PIN_1  1
+#define GPIO_PIN_2  2
+#define GPIO_PIN_3  3
+#define GPIO_PIN_4  4
+#define GPIO_PIN_5  5
+#define GPIO_PIN_6  6
+#define GPIO_PIN_7  7
+#define GPIO_PIN_8  8
+#define GPIO_PIN_9  9
+#define GPIO_PIN_10 10
+#define GPIO_PIN_11 11
+#define GPIO_PIN_12 12
+#define GPIO_PIN_13 13
+#define GPIO_PIN_14 14
+#define GPIO_PIN_15 15
+
 
 typedef struct {
+    // possible values from @GPIO_PIN_NUMS
     uint8_t pin_number;
+    // possible values from @GPIO_PIN_MODES
     uint8_t pin_mode;
     uint8_t pin_speed;
     uint8_t pin_pull_up_down_cntrl;
     uint8_t pin_output_type;
+    // possible values from @GPIO_ALT_FUNC_MODES
     uint8_t pin_alt_mode;
 } GPIO_CONFIG_t;
 

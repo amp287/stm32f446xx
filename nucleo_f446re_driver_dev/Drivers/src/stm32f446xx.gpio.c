@@ -5,34 +5,49 @@ void GPIO_init(GPIO_HANDLE_t *handle) {
     GPIO_t *gpio = handle->gpiox;
 
     switch (config.pin_mode) {
-        case PIN_MODE_INPUT:
-        case PIN_MODE_ALT:
-        case PIN_MODE_ANALOG:
-        case PIN_MODE_OUTPUT:
-            gpio->MODER |= (config.pin_mode << (config.pin_number * 2));
+        case GPIO_PIN_MODE_INPUT:
+        case GPIO_PIN_MODE_ALT:
+        case GPIO_PIN_MODE_ANALOG:
+        case GPIO_PIN_MODE_OUTPUT:
+            gpio->MODER &= ~(3U << (config.pin_number * 2));
+            gpio->MODER |= (config.pin_mode << (config.pin_number * 2));;
     }
 
     switch (config.pin_output_type) {
-        case PORT_OUT_OPEN_DRAIN:
-        case PORT_OUT_PUSH_PULL:
+        case GPIO_PORT_OUT_OPEN_DRAIN:
+        case GPIO_PORT_OUT_PUSH_PULL:
+            gpio->OTYPER &= ~(3U << (config.pin_number * 2));
             gpio->OTYPER |= (config.pin_output_type << config.pin_number);
     }
   
     switch (config.pin_speed) {
-        case PIN_SPEED_LOW:
-        case PIN_SPEED_MED:
-        case PIN_SPEED_FAST:
-        case PIN_SPEED_HIGH:
+        case GPIO_PIN_SPEED_LOW:
+        case GPIO_PIN_SPEED_MED:
+        case GPIO_PIN_SPEED_FAST:
+        case GPIO_PIN_SPEED_HIGH:
+            gpio->OSPEEDER &= ~(3U << (config.pin_number * 2));
             gpio->OSPEEDER |= (config.pin_speed << (config.pin_number * 2));
     }
 
     switch (config.pin_pull_up_down_cntrl) {
-        case PUPDR_NONE:
-        case PUPDR_UP:
-        case PUPDR_DOWN:
+        case GPIO_PUPDR_NONE:
+        case GPIO_PUPDR_UP:
+        case GPIO_PUPDR_DOWN:
+            gpio->PUPDR &= ~(3U << (config.pin_number * 2));
             gpio->PUPDR |= (config.pin_pull_up_down_cntrl << (config.pin_number * 2));
     }
     
+    if (config.pin_mode == GPIO_PIN_MODE_ALT) {
+        if(config.pin_alt_mode >= GPIO_ALT_FN_0 && config.pin_alt_mode <= GPIO_ALT_FN_15) {
+            if(config.pin_number < 8) {
+                gpio->AFR[0] &= ~(0xFU << (config.pin_number * 4));
+                gpio->AFR[0] |= (config.pin_alt_mode << (config.pin_number * 4));
+            } else {
+                gpio->AFR[1] &= ~(0xFU << (config.pin_number - 8 * 4));
+                gpio->AFR[1] = (config.pin_alt_mode << ((config.pin_number - 8) * 4));
+            }
+        }
+    }
 }
 
 void GPIO_deinit(GPIO_t *gpio) {
