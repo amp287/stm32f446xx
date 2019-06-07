@@ -7,63 +7,63 @@
 /*
 * @GPIO_PIN_MODES
 */
-#define GPIO_PIN_MODE_INPUT  0
-#define GPIO_PIN_MODE_OUTPUT 1
-#define GPIO_PIN_MODE_ALT    2
-#define GPIO_PIN_MODE_ANALOG 3
+#define GPIO_PIN_MODE_INPUT  0U
+#define GPIO_PIN_MODE_OUTPUT 1U
+#define GPIO_PIN_MODE_ALT    2U
+#define GPIO_PIN_MODE_ANALOG 3U
 
-#define GPIO_PORT_OUT_PUSH_PULL  0
-#define GPIO_PORT_OUT_OPEN_DRAIN 1
+#define GPIO_PORT_OUT_PUSH_PULL  0U
+#define GPIO_PORT_OUT_OPEN_DRAIN 1U
 
-#define GPIO_PIN_SPEED_LOW  0
-#define GPIO_PIN_SPEED_MED  1
-#define GPIO_PIN_SPEED_FAST 2
-#define GPIO_PIN_SPEED_HIGH 3
+#define GPIO_PIN_SPEED_LOW  0U
+#define GPIO_PIN_SPEED_MED  1U
+#define GPIO_PIN_SPEED_FAST 2U
+#define GPIO_PIN_SPEED_HIGH 3U
 
 // Pull up / pull down register control values
-#define GPIO_PUPDR_NONE  0
-#define GPIO_PUPDR_UP    1
-#define GPIO_PUPDR_DOWN  2
+#define GPIO_PUPDR_NONE  0U
+#define GPIO_PUPDR_UP    1U
+#define GPIO_PUPDR_DOWN  2U
 
 /* @GPIO_ALT_FUNC_MODES
 * Alternate function options ()
 */
-#define GPIO_ALT_FN_0    0
-#define GPIO_ALT_FN_1    1
-#define GPIO_ALT_FN_2    2
-#define GPIO_ALT_FN_3    3
-#define GPIO_ALT_FN_4    4
-#define GPIO_ALT_FN_5    5
-#define GPIO_ALT_FN_6    6
-#define GPIO_ALT_FN_7    7
-#define GPIO_ALT_FN_8    8
-#define GPIO_ALT_FN_9    9
-#define GPIO_ALT_FN_10   10
-#define GPIO_ALT_FN_11   11
-#define GPIO_ALT_FN_12   12
-#define GPIO_ALT_FN_13   13
-#define GPIO_ALT_FN_14   14
-#define GPIO_ALT_FN_15   15
+#define GPIO_ALT_FN_0    0U
+#define GPIO_ALT_FN_1    1U
+#define GPIO_ALT_FN_2    2U
+#define GPIO_ALT_FN_3    3U
+#define GPIO_ALT_FN_4    4U
+#define GPIO_ALT_FN_5    5U
+#define GPIO_ALT_FN_6    6U
+#define GPIO_ALT_FN_7    7U
+#define GPIO_ALT_FN_8    8U
+#define GPIO_ALT_FN_9    9U
+#define GPIO_ALT_FN_10   10U
+#define GPIO_ALT_FN_11   11U
+#define GPIO_ALT_FN_12   12U
+#define GPIO_ALT_FN_13   13U
+#define GPIO_ALT_FN_14   14U
+#define GPIO_ALT_FN_15   15U
 
 /* @GPIO_PIN_NUMS
  */
 
-#define GPIO_PIN_0  0
-#define GPIO_PIN_1  1
-#define GPIO_PIN_2  2
-#define GPIO_PIN_3  3
-#define GPIO_PIN_4  4
-#define GPIO_PIN_5  5
-#define GPIO_PIN_6  6
-#define GPIO_PIN_7  7
-#define GPIO_PIN_8  8
-#define GPIO_PIN_9  9
-#define GPIO_PIN_10 10
-#define GPIO_PIN_11 11
-#define GPIO_PIN_12 12
-#define GPIO_PIN_13 13
-#define GPIO_PIN_14 14
-#define GPIO_PIN_15 15
+#define GPIO_PIN_0  0U
+#define GPIO_PIN_1  1U
+#define GPIO_PIN_2  2U
+#define GPIO_PIN_3  3U
+#define GPIO_PIN_4  4U
+#define GPIO_PIN_5  5U
+#define GPIO_PIN_6  6U
+#define GPIO_PIN_7  7U
+#define GPIO_PIN_8  8U
+#define GPIO_PIN_9  9U
+#define GPIO_PIN_10 10U
+#define GPIO_PIN_11 11U
+#define GPIO_PIN_12 12U
+#define GPIO_PIN_13 13U
+#define GPIO_PIN_14 14U
+#define GPIO_PIN_15 15U
 
 
 typedef struct {
